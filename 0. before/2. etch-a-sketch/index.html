@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-a-Sketch</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="fav/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="fav/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="fav/favicon-16x16.png"
+    />
+    <link rel="manifest" href="fav/site.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Etch-a-Sketch</h1>
+    </header>
+    <main>
+      <section class="paint" id="paint"></section>
+      <aside>
+        <span id="size">16x16</span>
+        <input
+          type="range"
+          name="range"
+          id="range"
+          value="16"
+          min="4"
+          max="32"
+          step="2"
+        />
+        <input type="color" name="color" id="color" />
+        <button class="btn" id="eraser">Eraser</button>
+        <button class="btn" id="clear">Clear</button>
+      </aside>
+    </main>
+  </body>
+</html>

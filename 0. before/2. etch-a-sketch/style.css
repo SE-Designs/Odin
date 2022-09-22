@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  color: aliceblue;
+  font-family: "Space Mono", monospace;
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+  background-color: #111720;
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  height: calc(100vw - 100px);
+  background-color: #18202d;
+}
+
+.paint {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(16, 1fr);
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+.paint:hover {
+  cursor: crosshair;
+}
+
+aside {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+input {
+  padding: 0;
+  height: 100%;
+}
+
+.btn {
+  letter-spacing: -1px;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  height: 100%;
+}
+
+.blocks {
+  transition: all 0.15s ease;
+}
