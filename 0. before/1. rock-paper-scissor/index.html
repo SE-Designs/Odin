@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>ROCK, PAPER, SCISSOR</h1>
+    </header>
+    <main>
+      <div class="text">
+        <h2 id="result">Choose Your Weapon</h2>
+        <h3 id="after-result">and save the world from machines</h3>
+      </div>
+      <div class="dashboard">
+        <div class="player-box">
+          <div class="selection" id="player-selected">🧖‍♂️</div>
+          <h4 id="player-score">Player: 0</h4>
+        </div>
+        <div>vs</div>
+        <div class="computer-box">
+          <div class="selection" id="computer-selected">👾</div>
+          <h4 id="computer-score">Computer: 0</h4>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button class="rock" id="btn">✊</button>
+        <button class="paper" id="btn">✋</button>
+        <button class="scissor" id="btn">✌️</button>
+      </div>
+    </main>
+  </body>
+</html>
