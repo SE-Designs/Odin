@@ -10,6 +10,7 @@ const curOutput = document.querySelector("#cur-output");
 let firstNumber = "";
 let lastNumber = "";
 let operator = "";
+let isOperator = false;
 let isSecond = false;
 let isDotted = false;
 
@@ -57,8 +58,12 @@ operatorBtn.forEach((btn, i) => {
         operator = "+";
         break;
     }
-    updateOutput();
-    changeOutputs();
+
+    if (!isOperator) {
+      updateOutput();
+      changeOutputs();
+    }
+    isOperator = true;
   });
 });
 
@@ -114,11 +119,6 @@ function updateOutput() {
     if (!isSecond) {
       curOutput.innerText += " " + operator;
     }
-
-    if (firstNumber === "") {
-      firstNumber = "0";
-      updateOutput();
-    }
   }
 }
 
@@ -129,6 +129,7 @@ function changeOutputs() {
 }
 
 function calculateOutput() {
+  isOperator = false;
   let result = 0;
   topOutput.innerText += " " + curOutput.innerText;
   switch (operator) {
@@ -146,17 +147,71 @@ function calculateOutput() {
       break;
   }
   firstNumber = result.toString();
+  curOutput.innerText = result;
+  resetSecond();
+}
+
+function resetSecond() {
   lastNumber = "";
   operator = "";
   isSecond = false;
   topOutput.innerText += " = " + firstNumber;
-  curOutput.innerText = result;
+
+  if (firstNumber.includes(".")) {
+    isDotted = true;
+  }
 }
 
-document.body.addEventListener("click", () => {
-  console.log(firstNumber);
-  console.log(lastNumber);
-  console.log(operator);
-  console.log(topOutput.innerText);
-  console.log(curOutput.innerText);
+// Debugging:
+// document.body.addEventListener("click", () => {
+// });
+
+const btns = document.querySelectorAll(".btn");
+
+window.addEventListener("keydown", (e) => {
+  switch (e.code) {
+    case "Digit0":
+    case "Digit1":
+    case "Digit2":
+    case "Digit3":
+    case "Digit4":
+    case "Digit5":
+    case "Digit6":
+    case "Digit7":
+    case "Digit8":
+    case "Digit9":
+      btns.forEach((btn) => {
+        if (btn.innerText === e.code.toString().slice(-1)) {
+          btn.click();
+        }
+      });
+      break;
+    case "NumpadMultiply":
+      operatorBtn[0].click();
+      break;
+    case "Slash":
+    case "NumpadDivide":
+      operatorBtn[1].click();
+      break;
+    case "Minus":
+      operatorBtn[2].click();
+      break;
+    case "NumpadAdd":
+      operatorBtn[3].click();
+      break;
+    case "Period":
+      dotBtn.click();
+      break;
+    case "Equal":
+      equalBtn.click();
+      break;
+    case "Backspace":
+      deleteBtn.click();
+      break;
+    case "Escape":
+      clearBtn.click();
+      break;
+    default:
+      break;
+  }
 });
